@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import uni.proiect.modbd.model.PiesaCalculator;
 import uni.proiect.modbd.repository.PiesaCalculatorRepository;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/piesacalculator")
 public class PiesaCalculatorController {
@@ -21,6 +23,15 @@ public class PiesaCalculatorController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(piesaCalculator, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<PiesaCalculator>> getAll() {
+        List<PiesaCalculator> list = piesaCalculatorRepository.findAll();
+        if (list.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping

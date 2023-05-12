@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import uni.proiect.modbd.model.Client;
 
 @Repository
-public interface ClientRepository extends CrudRepository<Client, Long> {
+public interface ClientRepository extends JpaRepository<Client, Long> {
 
 }

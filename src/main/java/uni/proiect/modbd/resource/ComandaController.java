@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uni.proiect.modbd.model.Client;
 import uni.proiect.modbd.model.Comanda;
 import uni.proiect.modbd.repository.ComandaRepository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping("/comanda")
@@ -23,6 +25,15 @@ public class ComandaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(comanda, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Comanda>> getAll() {
+        List<Comanda> list = comandaRepository.findAll();
+        if (list.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping

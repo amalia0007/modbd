@@ -4,9 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uni.proiect.modbd.model.ArieCurierat;
 import uni.proiect.modbd.model.Client;
 import uni.proiect.modbd.repository.ClientRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,6 +21,15 @@ public class ClientController {
     public ResponseEntity<Client> getClient(@PathVariable("id") Long id) {
         Optional<Client> client = clientRepository.findById(id);
         return client.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Client>> getAll() {
+        List<Client> list = clientRepository.findAll();
+        if (list.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping("/clients")

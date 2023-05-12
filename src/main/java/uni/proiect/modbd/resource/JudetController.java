@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uni.proiect.modbd.model.Furnizor;
 import uni.proiect.modbd.model.Judet;
 import uni.proiect.modbd.repository.JudetRepository;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/judet")
@@ -21,6 +24,15 @@ public class JudetController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(judet, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Judet>> getAll() {
+        List<Judet> list = judetRepository.findAll();
+        if (list.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping

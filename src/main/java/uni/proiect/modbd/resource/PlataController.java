@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uni.proiect.modbd.model.PiesaCalculator;
 import uni.proiect.modbd.model.Plata;
 import uni.proiect.modbd.repository.PlataRepository;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping("/plata")
@@ -31,6 +33,15 @@ public class PlataController {
         plata.setData(LocalDateTime.now());
         Plata savedPlata = plataRepository.save(plata);
         return new ResponseEntity<>(savedPlata, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Plata>> getAll() {
+        List<Plata> list = plataRepository.findAll();
+        if (list.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

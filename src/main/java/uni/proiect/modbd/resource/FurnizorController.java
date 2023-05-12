@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uni.proiect.modbd.model.Curier;
 import uni.proiect.modbd.model.Furnizor;
 import uni.proiect.modbd.repository.FurnizorRepository;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/furnizor")
@@ -21,6 +24,15 @@ public class FurnizorController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(furnizor, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Furnizor>> getAll() {
+        List<Furnizor> list = furnizorRepository.findAll();
+        if (list.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping

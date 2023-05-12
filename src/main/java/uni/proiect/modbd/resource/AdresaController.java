@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import uni.proiect.modbd.model.Adresa;
 import uni.proiect.modbd.repository.AdresaRepository;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/adresa")
 public class AdresaController {
@@ -21,6 +23,15 @@ public class AdresaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(adresa, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Adresa>> getAll() {
+        List<Adresa> adrese = adresaRepository.findAll();
+        if (adrese.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(adrese, HttpStatus.OK);
     }
 
     @PostMapping

@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uni.proiect.modbd.model.Comanda;
 import uni.proiect.modbd.model.Curier;
 import uni.proiect.modbd.repository.CurierRepository;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/curier")
@@ -21,6 +24,15 @@ public class CurierController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(curier, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Curier>> getAll() {
+        List<Curier> list = curierRepository.findAll();
+        if (list.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping

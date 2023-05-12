@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uni.proiect.modbd.model.Judet;
 import uni.proiect.modbd.model.Oras;
 import uni.proiect.modbd.repository.OrasRepository;
 
@@ -23,6 +24,15 @@ public class OrasController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(oras, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Oras>> getAll() {
+        List<Oras> list = orasRepository.findAll();
+        if (list.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping
