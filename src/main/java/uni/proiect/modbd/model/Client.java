@@ -10,16 +10,16 @@ public class Client {
     @Column(name = "id_client")
     private Long id;
 
-    @Column(name = "nume", nullable = false)
+    @Column(name = "nume")
     private String nume;
 
-    @Column(name = "prenume", nullable = false)
+    @Column(name = "prenume")
     private String prenume;
 
-    @Column(name = "telefon", nullable = false)
+    @Column(name = "telefon")
     private String telefon;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email")
     private String email;
 
     @Column(name = "card_de_fidelitate", nullable = false)

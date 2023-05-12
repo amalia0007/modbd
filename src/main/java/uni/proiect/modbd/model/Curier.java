@@ -10,8 +10,7 @@ import lombok.Setter;
 @Setter
 public class Curier {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_curier")
+    @Column(name = "id_curier", nullable=false)
     private Long id;
 
     @Column(name = "nume", nullable = false)
