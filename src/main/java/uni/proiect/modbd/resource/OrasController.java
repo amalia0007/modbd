@@ -60,4 +60,14 @@ public class OrasController {
         }
         return new ResponseEntity<>(orasList, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteOras(@PathVariable("id") Long id) {
+        if (orasRepository.existsById(id)) {
+            orasRepository.deleteById(id);
+            return ResponseEntity.ok("Oras deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

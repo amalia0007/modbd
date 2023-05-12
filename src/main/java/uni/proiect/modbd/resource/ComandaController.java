@@ -56,4 +56,14 @@ public class ComandaController {
         Comanda updatedComanda = comandaRepository.save(existingComanda);
         return new ResponseEntity<>(updatedComanda, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteComanda(@PathVariable("id") Long id) {
+        if (comandaRepository.existsById(id)) {
+            comandaRepository.deleteById(id);
+            return ResponseEntity.ok("Comanda deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

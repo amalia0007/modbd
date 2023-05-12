@@ -57,4 +57,14 @@ public class PlataController {
         Plata updatedPlata = plataRepository.save(existingPlata);
         return new ResponseEntity<>(updatedPlata, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePlata(@PathVariable("id") Long id) {
+        if (plataRepository.existsById(id)) {
+            plataRepository.deleteById(id);
+            return ResponseEntity.ok("Plata deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

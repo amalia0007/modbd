@@ -52,4 +52,16 @@ public class FurnizorController {
         Furnizor updatedFurnizor = furnizorRepository.save(existingFurnizor);
         return new ResponseEntity<>(updatedFurnizor, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteFurnizor(@PathVariable("id") Long id) {
+        if (furnizorRepository.existsById(id)) {
+            furnizorRepository.deleteById(id);
+            return ResponseEntity.ok("Furnizor deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 }

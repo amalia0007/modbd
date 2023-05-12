@@ -53,4 +53,14 @@ public class PiesaCalculatorController {
         PiesaCalculator updatedPiesaCalculator = piesaCalculatorRepository.save(existingPiesaCalculator);
         return new ResponseEntity<>(updatedPiesaCalculator, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePiesaCalculator(@PathVariable("id") Long id) {
+        if (piesaCalculatorRepository.existsById(id)) {
+            piesaCalculatorRepository.deleteById(id);
+            return ResponseEntity.ok("PiesaCalculator deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

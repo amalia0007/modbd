@@ -51,4 +51,14 @@ public class AdresaController {
         Adresa updatedAdresa = adresaRepository.save(existingAdresa);
         return new ResponseEntity<>(updatedAdresa, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteAdresa(@PathVariable("id") Long id) {
+        if (adresaRepository.existsById(id)) {
+            adresaRepository.deleteById(id);
+            return ResponseEntity.ok("Adresa deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

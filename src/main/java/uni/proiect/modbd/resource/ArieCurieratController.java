@@ -51,4 +51,14 @@ public class ArieCurieratController {
         ArieCurierat updatedArieCurierat = arieCurieratRepository.save(existingArieCurierat);
         return new ResponseEntity<>(updatedArieCurierat, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteArieCurierat(@PathVariable("id") Long id) {
+        if (arieCurieratRepository.existsById(id)) {
+            arieCurieratRepository.deleteById(id);
+            return ResponseEntity.ok("ArieCurierat deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

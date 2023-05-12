@@ -54,4 +54,14 @@ public class CurierController {
         Curier updatedCurier = curierRepository.save(existingCurier);
         return new ResponseEntity<>(updatedCurier, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteCurier(@PathVariable("id") Long id) {
+        if (curierRepository.existsById(id)) {
+            curierRepository.deleteById(id);
+            return ResponseEntity.ok("Curier deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

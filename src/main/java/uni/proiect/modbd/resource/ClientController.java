@@ -55,4 +55,14 @@ public class ClientController {
         }
     }
 
+    @DeleteMapping("/clients/{id}")
+    public ResponseEntity<String> deleteClient(@PathVariable("id") Long id) {
+        if (clientRepository.existsById(id)) {
+            clientRepository.deleteById(id);
+            return ResponseEntity.ok("Client deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

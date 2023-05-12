@@ -51,4 +51,14 @@ public class JudetController {
         Judet updatedJudet = judetRepository.save(existingJudet);
         return new ResponseEntity<>(updatedJudet, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteJudet(@PathVariable("id") Long id) {
+        if (judetRepository.existsById(id)) {
+            judetRepository.deleteById(id);
+            return ResponseEntity.ok("Judet deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
