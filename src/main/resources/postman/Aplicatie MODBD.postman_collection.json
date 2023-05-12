@@ -44,7 +44,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nume\": \"Ion\",\r\n  \"prenume\": \"Ion\",\r\n  \"telefon\": \"0123456782\",\r\n  \"email\": \"email@email.com\",\r\n  \"cardDeFidelitate\": false\r\n}",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"nume\": \"Bondy\",\r\n    \"prenume\": \"Marcroft\",\r\n    \"telefon\": \"8267389179\",\r\n    \"email\": \"updated@scientificamerican.com\",\r\n    \"cardDeFidelitate\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -52,7 +52,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/clients/10",
+							"raw": "http://localhost:8080/clients/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -60,7 +60,36 @@
 							"port": "8080",
 							"path": [
 								"clients",
-								"10"
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update client local - card fidelitate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cardDeFidelitate\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clients-buc/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients-buc",
+								"5"
 							]
 						}
 					},
@@ -84,7 +113,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/clients/1",
+							"raw": "http://localhost:8080/clients/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -92,7 +121,98 @@
 							"port": "8080",
 							"path": [
 								"clients",
-								"1"
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get client Buc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clients-buc/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients-buc",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients"
 							]
 						}
 					},
@@ -110,7 +230,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 10,\r\n  \"nume\": \"test_5ac0e6d5a853\"\r\n}",
+							"raw": "{\r\n  \"nume\": \"Craiova\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -138,7 +258,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nume\": \"Timisoaraa\"\r\n}",
+							"raw": "{\r\n    \"nume\": \"Craiova de vest\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -146,7 +266,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/judet/10",
+							"raw": "http://localhost:8080/judet/10000",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -154,7 +274,7 @@
 							"port": "8080",
 							"path": [
 								"judet",
-								"10"
+								"10000"
 							]
 						}
 					},
@@ -178,7 +298,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/judet/10",
+							"raw": "http://localhost:8080/judet/10000",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -186,7 +306,67 @@
 							"port": "8080",
 							"path": [
 								"judet",
-								"10"
+								"10000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/judet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"judet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/judet/10000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"judet",
+								"10000"
 							]
 						}
 					},
@@ -204,7 +384,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"judet\": {\r\n    \"id\": 10,\r\n    \"nume\": \"test_1eb55b50e537\"\r\n  },\r\n  \"nume\": \"test_cc7878fdbf22\"\r\n}",
+							"raw": "{\r\n  \"judet\": {\r\n    \"id\": 3\r\n  },\r\n  \"nume\": \"Bucuresti\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -232,7 +412,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"judet\": {\r\n    \"id\": 10,\r\n    \"nume\": \"test_1eb55b50e537\"\r\n  },\r\n  \"nume\": \"test_cc7878fdbf22ee\"\r\n}",
+							"raw": "{\r\n  \"nume\": \"Brasov\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -240,7 +420,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/oras/11",
+							"raw": "http://localhost:8080/oras/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -248,7 +428,7 @@
 							"port": "8080",
 							"path": [
 								"oras",
-								"11"
+								"2"
 							]
 						}
 					},
@@ -272,7 +452,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/oras/10",
+							"raw": "http://localhost:8080/oras/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -280,7 +460,38 @@
 							"port": "8080",
 							"path": [
 								"oras",
-								"10"
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oras"
 							]
 						}
 					},
@@ -331,7 +542,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nume\": \"test_c4e553a4321f\",\r\n  \"prenume\": \"test_4b2bba59f10f\",\r\n  \"telefon\": \"test_ad6c7\",\r\n  \"email\": \"test_2cb8902adc91\"\r\n}",
+							"raw": "{\r\n    \"id\":20000,\r\n  \"nume\": \"Ion\",\r\n  \"prenume\": \"Ionel\",\r\n  \"telefon\": \"9533040626\",\r\n  \"email\": \"rroskelly0@a8.net\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -359,7 +570,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nume\": \"test_c4e553a4321f\",\r\n  \"prenume\": \"test_4b2bba59f10f\",\r\n  \"telefon\": \"updated\",\r\n  \"email\": \"test_2cb8902adc91\"\r\n}",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"nume\": \"Parry\",\r\n    \"prenume\": \"Raycroft\",\r\n    \"telefon\": \"000000000\",\r\n    \"email\": \"praycroft4@comsenz.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -367,7 +578,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/curier/11",
+							"raw": "http://localhost:8080/curier/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -375,7 +586,7 @@
 							"port": "8080",
 							"path": [
 								"curier",
-								"11"
+								"5"
 							]
 						}
 					},
@@ -399,7 +610,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/curier/11",
+							"raw": "http://localhost:8080/curier/10001",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -407,7 +618,67 @@
 							"port": "8080",
 							"path": [
 								"curier",
-								"11"
+								"10001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/curier",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"curier"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/curier/10001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"curier",
+								"10001"
 							]
 						}
 					},
@@ -477,6 +748,37 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ariecurierat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ariecurierat"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -490,7 +792,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"oras\": {\r\n    \"id\": 11\r\n  },\r\n  \"arieCurierat\": {\r\n    \"id\": 21\r\n  },\r\n  \"nume\": \"test_0e29447e6719\",\r\n  \"codPostal\": \"test_4b\"\r\n}",
+							"raw": "{\r\n  \"oras\": {\r\n    \"id\": 3\r\n  },\r\n  \"arieCurierat\": {\r\n    \"id\": 6\r\n  },\r\n  \"nume\": \"Strada Vladimirescu Tudor,19,Bucharest, Romania\",\r\n  \"codPostal\": \"720036\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -558,7 +860,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/adresa/10",
+							"raw": "http://localhost:8080/adresa/100000",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -566,7 +868,67 @@
 							"port": "8080",
 							"path": [
 								"adresa",
-								"10"
+								"100000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adresa/100000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adresa",
+								"100000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adresa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adresa"
 							]
 						}
 					},
@@ -584,7 +946,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"adresa\": {\r\n    \"id\": 22\r\n  },\r\n  \"nume\": \"test_1bfeb7a\",\r\n  \"telefon\": \"test\"\r\n}",
+							"raw": "{\r\n  \"adresa\": {\r\n    \"id\": 3\r\n  },\r\n  \"nume\": \"Mitchell, Grady and Auer\",\r\n  \"telefon\": \"2712813554\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -652,7 +1014,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/furnizor/21",
+							"raw": "http://localhost:8080/furnizor/100000",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -660,7 +1022,67 @@
 							"port": "8080",
 							"path": [
 								"furnizor",
-								"21"
+								"100000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/furnizor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"furnizor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/furnizor/100000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"furnizor",
+								"100000"
 							]
 						}
 					},
@@ -729,7 +1151,7 @@
 					"response": []
 				},
 				{
-					"name": "Get",
+					"name": "Get all",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -746,15 +1168,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/piesacalculator/23",
+							"raw": "http://localhost:8080/piesacalculator",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"piesacalculator",
-								"23"
+								"piesacalculator"
 							]
 						}
 					},
@@ -853,6 +1274,37 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/plata",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"plata"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -943,6 +1395,37 @@
 							"path": [
 								"comanda",
 								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/comanda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comanda"
 							]
 						}
 					},
